@@ -337,7 +337,7 @@
         "affectsGlobalScope": false
       },
       "../package.json": {
-        "version": "2a6b8a9d5436f1257117a8ad641b0734fb4973242caa64124e88bc8a0d7d52ec",
+        "version": "08c19c1b831a1fbd4ad0415916afc92a0bcfc0ce48ded25adc7504bce71d4882",
         "signature": "9a848e103b866f3ee6b1f20b735ca10c471d34673dbf5ba8e9ac878871cce529",
         "affectsGlobalScope": true
       },

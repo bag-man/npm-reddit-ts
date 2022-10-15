@@ -191,6 +191,7 @@ var RedditAPI = (function () {
                                             .post()];
                                     case 1:
                                         resp = _a.sent();
+                                        console.log(222, resp);
                                         if (!resp.data.success) {
                                             if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
                                                 throw new RedditAPIErr_1.RedditAPIErr.PostLimit("submission: " + args.title);

@@ -107,6 +107,7 @@ export default class RedditAPI {
         .body_forms(args)
         .post<JQueryResponse>()
 
+      console.log(222, resp)
       if (!resp.data.success) {
         if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
           throw new RedditAPIErr.PostLimit(`submission: ${args.title}`)

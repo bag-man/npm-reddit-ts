@@ -212,8 +212,8 @@
         "affectsGlobalScope": false
       },
       "../src/types/RedditAPI.type.ts": {
-        "version": "e907ae7c955e2234ace62e5c042c212c857156bb9b461705f1a962f7930ddb6c",
-        "signature": "6d411e04200019108a18343378b9e362b39537937b76693ba605bdbaf4d0fa72",
+        "version": "7152e9f874248e5d2f5895dff84e3a463b7c276d93e0038d9e320e4be845b03b",
+        "signature": "0aee7a4325f23dbd81363991d4250a5acd30c3e60b53fb50e7bc873d1a3991f3",
         "affectsGlobalScope": false
       },
       "../src/types/MeResult.type.ts": {
@@ -327,8 +327,8 @@
         "affectsGlobalScope": false
       },
       "../src/RedditAPI.ts": {
-        "version": "e16c095df3f224bf20acdf0d1e966cb0bd2b76c57feedff441648a318870fd70",
-        "signature": "a39bc558807bbe9f138b359c359cc57dd18e8d244424766f2fe03d7064d46946",
+        "version": "73c584d10a3fb7611da7b3b87f57302ad496f5fd21df712e68499b9777687c62",
+        "signature": "d5780f1ee845223aa2584b54897d3f9f3b322f542c5d00cbca2596f3f8167c9d",
         "affectsGlobalScope": false
       },
       "../index.ts": {

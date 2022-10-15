@@ -2,7 +2,7 @@ import { CommentsResult } from './types/CommentsResult.type'
 import { ThreadResult } from './types/ThreadsResult.type'
 import Http, { OAuth2Token } from 'httyp'
 import { Post } from './types/models/Post.type'
-import { JQueryResponse, Token } from './types/RedditAPI.type'
+import { JQueryResponse, Token, SubmitArgs } from './types/RedditAPI.type'
 import { MeResult } from './types/MeResult.type'
 import { RedditAPIErr } from './RedditAPIErr'
 import { SearchResult } from './types/SearchResult.type'
@@ -100,16 +100,16 @@ export default class RedditAPI {
     })
   }
 
-  async submit(subreddit: string, title: string, text: string): Promise<void> {
+  async submit(args: SubmitArgs): Promise<void> {
     return await this.trycatch<void>(async () => {
       let resp = await this.oauth2
         .url('https://oauth.reddit.com/api/submit')
-        .body_forms({ kind: "self", text, title, sr: subreddit })
+        .body_forms(args)
         .post<JQueryResponse>()
 
       if (!resp.data.success) {
         if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
-          throw new RedditAPIErr.PostLimit(`title: ${title}`)
+          throw new RedditAPIErr.PostLimit(`submission: ${args.title}`)
         }
         throw new RedditAPIErr.Failed(`${JSON.stringify(resp.data)}`)
       }

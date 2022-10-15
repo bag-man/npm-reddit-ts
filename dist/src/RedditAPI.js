@@ -176,7 +176,7 @@ var RedditAPI = (function () {
             });
         });
     };
-    RedditAPI.prototype.submit = function (subreddit, title, text) {
+    RedditAPI.prototype.submit = function (args) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
@@ -187,13 +187,13 @@ var RedditAPI = (function () {
                                 switch (_a.label) {
                                     case 0: return [4, this.oauth2
                                             .url('https://oauth.reddit.com/api/submit')
-                                            .body_forms({ kind: "self", text: text, title: title, sr: subreddit })
+                                            .body_forms(args)
                                             .post()];
                                     case 1:
                                         resp = _a.sent();
                                         if (!resp.data.success) {
                                             if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
-                                                throw new RedditAPIErr_1.RedditAPIErr.PostLimit("title: " + title);
+                                                throw new RedditAPIErr_1.RedditAPIErr.PostLimit("submission: " + args.title);
                                             }
                                             throw new RedditAPIErr_1.RedditAPIErr.Failed("" + JSON.stringify(resp.data));
                                         }

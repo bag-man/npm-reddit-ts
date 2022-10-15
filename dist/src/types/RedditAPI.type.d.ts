@@ -15,3 +15,11 @@ export interface GenericResponse {
 export declare type JQueryResponse = {
     jquery: Array<any[]>;
 } & GenericResponse;
+export declare type SubmitArgs = {
+    kind: 'link' | 'self' | 'image' | 'video' | 'videogif';
+    sendreplies: boolean;
+    sr: string;
+    title: string;
+    text?: string;
+    url?: string;
+};

@@ -1,6 +1,6 @@
 import Http from 'httyp';
 import { Post } from './types/models/Post.type';
-import { Token } from './types/RedditAPI.type';
+import { Token, SubmitArgs } from './types/RedditAPI.type';
 import { MeResult } from './types/MeResult.type';
 import { SearchResult } from './types/SearchResult.type';
 import { User } from './types/models/User.type';
@@ -27,7 +27,7 @@ export default class RedditAPI {
     comments(subreddit: string): Promise<Post[]>;
     threads(subreddit: string): Promise<Post[]>;
     reply(thing_id: string, text: string): Promise<void>;
-    submit(subreddit: string, title: string, text: string): Promise<void>;
+    submit(args: SubmitArgs): Promise<void>;
     implicit_token(client_id: string, client_secret: string, redirect_uri: string, code: string): Promise<Token & {
         expires_on: Date;
     }>;

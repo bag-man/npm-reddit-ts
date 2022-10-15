@@ -18,3 +18,12 @@ export interface GenericResponse {
 export type JQueryResponse = {
   jquery: Array<any[]>
 } & GenericResponse
+
+export type SubmitArgs = {
+  kind: 'link' | 'self' | 'image' | 'video' | 'videogif'
+  sendreplies: boolean
+  sr: string
+  title: string
+  text?: string
+  url?: string
+}

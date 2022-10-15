@@ -327,8 +327,8 @@
         "affectsGlobalScope": false
       },
       "../src/RedditAPI.ts": {
-        "version": "73c584d10a3fb7611da7b3b87f57302ad496f5fd21df712e68499b9777687c62",
-        "signature": "d5780f1ee845223aa2584b54897d3f9f3b322f542c5d00cbca2596f3f8167c9d",
+        "version": "58f5a7564ccadf31b424995e7b1257c6db636e6c08fbaff7091227e05a8ff9f2",
+        "signature": "65507bbe014e02b271ca7bc8360d1d6491ee0a1d1dc732b676d01e3d68d083a7",
         "affectsGlobalScope": false
       },
       "../index.ts": {

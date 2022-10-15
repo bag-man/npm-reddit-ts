@@ -100,8 +100,8 @@ export default class RedditAPI {
     })
   }
 
-  async submit(args: SubmitArgs): Promise<void> {
-    return await this.trycatch<void>(async () => {
+  async submit(args: SubmitArgs): Promise<unknown> {
+    return await this.trycatch<unknown>(async () => {
       let resp = await this.oauth2
         .url('https://oauth.reddit.com/api/submit')
         .body_forms(args)
@@ -113,6 +113,7 @@ export default class RedditAPI {
         }
         throw new RedditAPIErr.Failed(`${JSON.stringify(resp.data)}`)
       }
+      return resp.data
     })
   }
 

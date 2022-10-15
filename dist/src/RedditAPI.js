@@ -191,7 +191,7 @@ var RedditAPI = (function () {
                                             .post()];
                                     case 1:
                                         resp = _a.sent();
-                                        return [2, resp.data.jquery];
+                                        return [2, resp.data];
                                 }
                             });
                         }); })];

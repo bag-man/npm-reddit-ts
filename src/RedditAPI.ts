@@ -105,7 +105,7 @@ export default class RedditAPI {
       let resp = await this.oauth2
         .url('https://oauth.reddit.com/api/submit')
         .body_forms(args)
-        .post()
+        .post<JQueryResponse>()
 
       // if (!resp.data.success) {
       //   if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
@@ -113,7 +113,7 @@ export default class RedditAPI {
       //   }
       //   throw new RedditAPIErr.Failed(`${JSON.stringify(resp.data)}`)
       // }
-      return resp
+      return resp.data.jquery
     })
   }
 

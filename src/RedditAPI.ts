@@ -113,7 +113,7 @@ export default class RedditAPI {
         }
         throw new RedditAPIErr.Failed(`${JSON.stringify(resp.data)}`)
       }
-      return resp.data
+      return resp
     })
   }
 

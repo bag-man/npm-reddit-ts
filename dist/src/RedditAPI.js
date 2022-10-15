@@ -197,7 +197,7 @@ var RedditAPI = (function () {
                                             }
                                             throw new RedditAPIErr_1.RedditAPIErr.Failed("" + JSON.stringify(resp.data));
                                         }
-                                        return [2, resp.data];
+                                        return [2, resp];
                                 }
                             });
                         }); })];

@@ -100,6 +100,22 @@ export default class RedditAPI {
     })
   }
 
+  async submit(subreddit: string, title: string, text: string): Promise<void> {
+    return await this.trycatch<void>(async () => {
+      let resp = await this.oauth2
+        .url('https://oauth.reddit.com/api/submit')
+        .body_forms({ kind: "self", text, title, sr: subreddit })
+        .post<JQueryResponse>()
+
+      if (!resp.data.success) {
+        if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
+          throw new RedditAPIErr.PostLimit(`title: ${title}`)
+        }
+        throw new RedditAPIErr.Failed(`${JSON.stringify(resp.data)}`)
+      }
+    })
+  }
+
   async implicit_token(
     client_id: string,
     client_secret: string,

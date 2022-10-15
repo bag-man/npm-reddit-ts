@@ -27,6 +27,7 @@ export default class RedditAPI {
     comments(subreddit: string): Promise<Post[]>;
     threads(subreddit: string): Promise<Post[]>;
     reply(thing_id: string, text: string): Promise<void>;
+    submit(subreddit: string, title: string, text: string): Promise<void>;
     implicit_token(client_id: string, client_secret: string, redirect_uri: string, code: string): Promise<Token & {
         expires_on: Date;
     }>;

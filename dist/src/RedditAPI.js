@@ -176,6 +176,36 @@ var RedditAPI = (function () {
             });
         });
     };
+    RedditAPI.prototype.submit = function (subreddit, title, text) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4, this.trycatch(function () { return __awaiter(_this, void 0, void 0, function () {
+                            var resp;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4, this.oauth2
+                                            .url('https://oauth.reddit.com/api/submit')
+                                            .body_forms({ kind: "self", text: text, title: title, sr: subreddit })
+                                            .post()];
+                                    case 1:
+                                        resp = _a.sent();
+                                        if (!resp.data.success) {
+                                            if (JSON.stringify(resp.data.jquery).includes('you are doing that too much')) {
+                                                throw new RedditAPIErr_1.RedditAPIErr.PostLimit("title: " + title);
+                                            }
+                                            throw new RedditAPIErr_1.RedditAPIErr.Failed("" + JSON.stringify(resp.data));
+                                        }
+                                        return [2];
+                                }
+                            });
+                        }); })];
+                    case 1: return [2, _a.sent()];
+                }
+            });
+        });
+    };
     RedditAPI.prototype.implicit_token = function (client_id, client_secret, redirect_uri, code) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
